@@ -7,10 +7,12 @@
 
 
 #include <string>
-
-class BankTransferSender  {
+#include "IPaymentProcess.h"
+using namespace std;
+class BankTransferSender : public IPaymentProcess
+        {
 public:
-    std::string sendPayment() const;
+   string sendPayment();
 };
 
 
