@@ -14,6 +14,7 @@ public:
 
     // Constructors
     Person();
+    Person(IPaymentProcess*);
     Person(const std::string &firstName, const std::string &lastName, int documentId,IPaymentProcess* paymentProcess);
     virtual ~Person() = default;
 

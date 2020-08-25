@@ -6,6 +6,10 @@
 
 Person::Person() {}
 
+Person::Person(IPaymentProcess* iPaymentProcess1 ){
+    iPaymentProcess = iPaymentProcess1;
+}
+
 Person::Person(const std::string &firstName, const std::string &lastName, int documentId, IPaymentProcess* iPaymentProcess1) : firstName(firstName),
                                                                                             lastName(lastName),
                                                                                             documentId(documentId)
