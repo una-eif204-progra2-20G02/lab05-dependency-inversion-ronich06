@@ -32,5 +32,10 @@ int main()
     cout<<person3.purchase()<<endl;
     cout<<"---------------------------------------------------------"<<endl;
 
+    //Dynamic objects deleted
+    delete paymentProcess;
+    delete paymentProcess2;
+    delete paymentProcess3;
+
     return 0;
 }
