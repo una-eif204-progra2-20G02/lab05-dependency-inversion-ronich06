@@ -13,23 +13,23 @@ int main()
 {
    //Money by trensfer
     IPaymentProcess* paymentProcess = new BankTransferSender();
-    Person person1("Rony","Chinchilla",402440766,paymentProcess);
+    Person person1("Rony","Chinchilla",402440766);
     cout<<person1.toString()<<endl;
-    cout<<person1.purchase()<<endl;
+    cout<<person1.purchase(paymentProcess)<<endl;
     cout<<"---------------------------------------------------------"<<endl;
 
     //Money by cash
     IPaymentProcess* paymentProcess2 = new CashSender();
-    Person person2("Adolfo","Avila",102445788,paymentProcess2);
+    Person person2("Adolfo","Avila",102445788);
     cout<<person2.toString()<<endl;
-    cout<<person2.purchase()<<endl;
+    cout<<person2.purchase(paymentProcess2)<<endl;
     cout<<"---------------------------------------------------------"<<endl;
 
     //Money by check
     IPaymentProcess* paymentProcess3 = new CheckSender();
-    Person person3("Jairo","Quinones",406550955,paymentProcess3);
+    Person person3("Jairo","Quinones",406550955);
     cout<<person3.toString()<<endl;
-    cout<<person3.purchase()<<endl;
+    cout<<person3.purchase(paymentProcess3)<<endl;
     cout<<"---------------------------------------------------------"<<endl;
 
     //Dynamic objects deleted

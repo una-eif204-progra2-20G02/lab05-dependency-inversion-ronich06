@@ -14,8 +14,7 @@ public:
 
     // Constructors
     Person();
-    Person(IPaymentProcess*);
-    Person(const std::string &firstName, const std::string &lastName, int documentId,IPaymentProcess* paymentProcess);
+    Person(const std::string &firstName, const std::string &lastName, int documentId);
     virtual ~Person() = default;
 
     // Gets and Sets
@@ -31,11 +30,8 @@ public:
 
     void setDocumentId(int documentId);
 
-    IPaymentProcess *getIPaymentProcess() const;
 
-    void setIPaymentProcess(IPaymentProcess *iPaymentProcess);
-
-    string purchase();
+    string purchase(IPaymentProcess*);
 
 
     virtual std::string toString() const; // Virtual
@@ -43,7 +39,6 @@ private:
     std::string firstName;
     std::string lastName;
     int documentId;
-    IPaymentProcess* iPaymentProcess;
 };
 
 #endif //UNIT_TESTING_01_BASIC_PERSON_H
