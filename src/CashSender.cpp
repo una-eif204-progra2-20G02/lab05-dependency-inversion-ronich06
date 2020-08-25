@@ -4,6 +4,6 @@
 
 #include "CashSender.h"
 
-std::string CashSender::sendPayment() const {
+string CashSender::sendPayment()  {
     return "Give the money in the hands";
 }
