@@ -8,9 +8,10 @@ Person::Person() {}
 
 Person::Person(const std::string &firstName, const std::string &lastName, int documentId, IPaymentProcess* iPaymentProcess1) : firstName(firstName),
                                                                                             lastName(lastName),
-                                                                                            documentId(documentId),
-                                                                                            iPaymentProcess(iPaymentProcess1)
-                                                                                            {}
+                                                                                            documentId(documentId)
+                                                                                            {
+    iPaymentProcess = iPaymentProcess1;
+                                                                                            }
 
 const std::string &Person::getFirstName() const {
     return firstName;
@@ -48,7 +49,7 @@ void Person::setIPaymentProcess(IPaymentProcess *iPaymentProcess) {
     Person::iPaymentProcess = iPaymentProcess;
 }
 
-void Person::purchase()
+string Person::purchase()
 {
-   iPaymentProcess->sendPayment();
+  return iPaymentProcess->sendPayment();
 }

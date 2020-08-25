@@ -8,13 +8,13 @@
 /**
  * Abstract Class of Person
  */
-class Person : public IPaymentProcess
+class Person
         {
 public:
 
     // Constructors
     Person();
-    Person(const std::string &firstName, const std::string &lastName, int documentId,IPaymentProcess*);
+    Person(const std::string &firstName, const std::string &lastName, int documentId,IPaymentProcess* paymentProcess);
     virtual ~Person() = default;
 
     // Gets and Sets
@@ -34,7 +34,7 @@ public:
 
     void setIPaymentProcess(IPaymentProcess *iPaymentProcess);
 
-    void purchase();
+    string purchase();
 
 
     virtual std::string toString() const; // Virtual
