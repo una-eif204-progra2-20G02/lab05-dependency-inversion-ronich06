@@ -6,9 +6,11 @@
 
 Person::Person() {}
 
-Person::Person(const std::string &firstName, const std::string &lastName, int documentId) : firstName(firstName),
+Person::Person(const std::string &firstName, const std::string &lastName, int documentId, IPaymentProcess* iPaymentProcess1) : firstName(firstName),
                                                                                             lastName(lastName),
-                                                                                            documentId(documentId) {}
+                                                                                            documentId(documentId),
+                                                                                            iPaymentProcess(iPaymentProcess1)
+                                                                                            {}
 
 const std::string &Person::getFirstName() const {
     return firstName;
@@ -38,17 +40,15 @@ std::string Person::toString() const {
     return getFirstName() + " " + getLastName() + "\nDoc Id: " + std::to_string(getDocumentId());
 }
 
-std::string Person::processPaymentBankTransfer() {
-    BankTransferSender bankTransferSender;
-    return bankTransferSender.sendPayment();
+IPaymentProcess *Person::getIPaymentProcess() const {
+    return iPaymentProcess;
 }
 
-std::string Person::processPaymentCash() {
-    CashSender cashSender;
-    return cashSender.sendPayment();
+void Person::setIPaymentProcess(IPaymentProcess *iPaymentProcess) {
+    Person::iPaymentProcess = iPaymentProcess;
 }
 
-std::string Person::processPaymentCheck() {
-    CheckSender checkSender;
-    return checkSender.sendPayment();
+void Person::purchase()
+{
+   iPaymentProcess->sendPayment();
 }

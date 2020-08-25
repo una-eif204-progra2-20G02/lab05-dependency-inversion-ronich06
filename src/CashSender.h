@@ -12,7 +12,7 @@ using namespace std;
 class CashSender : public IPaymentProcess
         {
 public:
-    string sendPayment() ;
+    string sendPayment() override ;
 };
 
 

@@ -3,19 +3,18 @@
 
 #include <string>
 #include <ostream>
-#include "BankTransferSender.h"
-#include "CashSender.h"
-#include "CheckSender.h"
+#include "IPaymentProcess.h"
 
 /**
  * Abstract Class of Person
  */
-class Person {
+class Person : public IPaymentProcess
+        {
 public:
 
     // Constructors
     Person();
-    Person(const std::string &firstName, const std::string &lastName, int documentId);
+    Person(const std::string &firstName, const std::string &lastName, int documentId,IPaymentProcess*);
     virtual ~Person() = default;
 
     // Gets and Sets
@@ -31,15 +30,19 @@ public:
 
     void setDocumentId(int documentId);
 
-    std::string processPaymentBankTransfer();
-    std::string processPaymentCash();
-    std::string processPaymentCheck();
+    IPaymentProcess *getIPaymentProcess() const;
+
+    void setIPaymentProcess(IPaymentProcess *iPaymentProcess);
+
+    void purchase();
+
 
     virtual std::string toString() const; // Virtual
 private:
     std::string firstName;
     std::string lastName;
     int documentId;
+    IPaymentProcess* iPaymentProcess;
 };
 
 #endif //UNIT_TESTING_01_BASIC_PERSON_H
